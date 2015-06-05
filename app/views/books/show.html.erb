@@ -6,7 +6,7 @@
 <h3><%= @book.name%> by <%= @book.author%></h3>
 <p><%= @book.description %></p>
 <h4 class="text-center">$<%= @book.price.to_f / 100%></h4>
-
+<% if current_user %>
 <%= form_tag buy_path(slug: @book.slug) do %>
 <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -17,5 +17,8 @@
     data-email = "<%= current_user.email%>">
   </script>
 <% end %>
+<% else %>
+<p>Please login first!</p>
+<% end%>
 </div>
 </div>
