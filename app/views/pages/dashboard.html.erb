@@ -2,31 +2,14 @@
 <h1 class="text-center">DashBoard</h1>
 <div class="col-md-4">
 <h3 class="text-center">My Books  <%= link_to "New Book", new_book_path, class: "btn btn-primary btn-sm"%></h3>
-<table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Avaliable</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @books.each do |book| %>
-        <tr>
-          <td><%= book.id %></td>
-          <td><%= link_to book.name, book_path(book) %></td>
-          <td><%= book.availability %></td>
-          <td><%= link_to "Edit", edit_book_path(book)%></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+<%= render "books"%>
 </div>
 <div class="col-md-4">
 <h3 class="text-center">Purchases</h3>
+<%= render "purchased"%>
 </div>
 <div class="col-md-4">
 <h3 class="text-center">Saless</h3>
+<%= render "sales"%>
 </div>
 </div>
